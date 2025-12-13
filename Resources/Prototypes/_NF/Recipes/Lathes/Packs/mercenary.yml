@@ -112,3 +112,11 @@
   - ClothingEyesHudBountyHunter
   - BolaNF
   - NFHandcuffs
+
+- type: latheRecipePack
+  id: NFMercenaryArchetypeMeleeStatic
+  recipes:
+  - PlasteelMaceNF
+  - PlasteelEpeeNF
+  - PlasteelAxeNF
+  - PlasteelSpearNF

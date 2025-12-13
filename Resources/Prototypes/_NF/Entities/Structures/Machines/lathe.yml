@@ -305,7 +305,7 @@
     - CSIPCTopicalsStatic # CS - IPC topicals
     - CSMagazineStatic
     - NFMercenaryArchetypeStatic
-
+    - NFMercenaryArchetypeMeleeStatic
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -370,6 +370,7 @@
     - NFHackedMercenaryClothingStatic
     - NFMercenaryMagazineStatic
     - NFMercenaryArchetypeStatic
+    - NFMercenaryArchetypeMeleeStatic
   - type: BlueprintReceiver
     whitelist:
       tags:
