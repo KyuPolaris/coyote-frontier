@@ -625,7 +625,7 @@ namespace Content.Client.Lobby.UI
             }
 
             // Categories that should be shown in a nested window instead of inline
-            var nestedCategories = new HashSet<string> { "Temperament", "SpeechTraits", "Disabilities" };
+            var nestedCategories = new HashSet<string> { "Temperament", "SpeechTraits", "Disabilities", "BodyType" };
 
             // Create UI view from model
             foreach (var (categoryId, categoryTraits) in traitGroups)

@@ -23,3 +23,8 @@
   id: Temperament
   name: trait-category-temperament
   maxTraitPoints: 2
+
+- type: traitCategory
+  id: BodyType
+  name: trait-category-bodytypes
+  maxTraitPoints: 2
