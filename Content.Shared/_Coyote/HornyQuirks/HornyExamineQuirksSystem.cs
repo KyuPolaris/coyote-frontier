@@ -55,13 +55,6 @@ public sealed class HornyExamineQuirksSystem : EntitySystem
             temperaments.Add(hornyProto.TextToShow);
         }
 
-        string bodyWords = formatulateBodyWords(uid, component);
-        // stick body words at start
-        if (!string.IsNullOrEmpty(bodyWords))
-        {
-            args.PushMarkup(bodyWords);
-        }
-
         if (temperaments.Count > 0)
         {
             foreach (var loc in temperaments)
@@ -73,6 +66,13 @@ public sealed class HornyExamineQuirksSystem : EntitySystem
                 args.PushMarkup(translated);
             }
         }
+        string bodyWords = formatulateBodyWords(uid, component);
+        // stick body words at start
+        if (!string.IsNullOrEmpty(bodyWords))
+        {
+            args.PushMarkup(bodyWords);
+        }
+
     }
 
     /// <summary>
@@ -95,9 +95,20 @@ public sealed class HornyExamineQuirksSystem : EntitySystem
 
         var appearances = component.HornyAppearances.ToList();
         _rnd.Shuffle(appearances);
+        // localize all entries in the appearances list
+        var hormy = Identity.Entity(horny, EntityManager);
+        for (int i = 0; i < appearances.Count; i++)
+        {
+            var descriptiveLoc = Loc.GetString(
+                appearances[i].Item1,
+                ("them", hormy));
+            var briefLoc = Loc.GetString(
+                appearances[i].Item2,
+                ("them", hormy));
+            appearances[i] = (descriptiveLoc, briefLoc);
+        }
         var descriptive = appearances[0].Item1;
         var briefList = appearances.Skip(1).Select(x => x.Item2).ToList();
-        var hormy = Identity.Entity(horny, EntityManager);
         switch (briefList.Count)
         {
             case 0:
@@ -120,7 +131,7 @@ public sealed class HornyExamineQuirksSystem : EntitySystem
                     "horny-examine-quirk-bodyword-multiple",
                     ("them", hormy),
                     ("first", descriptive),
-                    ("middle", string.Join(", ", middle)),
+                    ("second", string.Join(", ", middle)),
                     ("last", last));
             }
         }
