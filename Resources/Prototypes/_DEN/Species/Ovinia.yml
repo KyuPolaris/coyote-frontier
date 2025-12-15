@@ -13,6 +13,9 @@
   lastNames: NamesLast
   minHeight: 0.8
   maxHeight: 1.05
+  kind:
+  - BasicHumanlike
+  - BasicFurry
 
 - type: speciesBaseSprites
   id: MobOviniaSprites
@@ -22,6 +25,7 @@
     Snout: MobHumanoidAnyMarking
     UndergarmentBottom: MobHumanoidAnyMarking
     UndergarmentTop: MobHumanoidAnyMarking
+    Genital: MobHumanoidAnyMarking
     Chest: MobOviniaTorso
     NeckFluff: MobHumanoidAnyMarking
     Hair: MobHumanoidAnyMarking
