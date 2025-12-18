@@ -1044,19 +1044,6 @@
   - scent-weldingfuel-far
 
 - type: scent
-  id: Oil
-  parent:
-  - ScentBase
-  msgsExamine:
-  - scent-oil-examine
-  msgsDirect:
-  - scent-oil-direct
-  msgsClose:
-  - scent-oil-close
-  msgsFar:
-  - scent-oil-far
-
-- type: scent
   id: Dust
   parent:
   - ScentBase
