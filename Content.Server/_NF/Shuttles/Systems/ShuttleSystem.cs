@@ -296,13 +296,13 @@ public sealed partial class ShuttleSystem
             {
                 continue;
             }
-            
+
             // is the shuttle present in the list of player ships with people on them?
             if (whereIsEveryone.Contains(mygrid.Value))
             {
                 continue; // people are on it, no need to emergency brake
             }
-            
+
             // find all the shuttle consoles on this shuttle
             var consolesQuery = EntityQueryEnumerator<ShuttleConsoleComponent, TransformComponent>();
             var cronsoles = new HashSet<Entity<ShuttleConsoleComponent>>();
@@ -313,7 +313,7 @@ public sealed partial class ShuttleSystem
                     cronsoles.Add((consoleUid, consoleComp));
                 }
             }
-            
+
             // No people on board and shuttle is moving - engage emergency brake!
             EngageEmergencyBrake(
                 uid,
