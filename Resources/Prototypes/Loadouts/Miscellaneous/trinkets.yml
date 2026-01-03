@@ -43,6 +43,7 @@
 
 - type: loadout # Coyote: Add Expie plushie to loadout
   id: PlushieExperiment
+  price: 500
   storage:
     back:
     - PlushieExperiment
