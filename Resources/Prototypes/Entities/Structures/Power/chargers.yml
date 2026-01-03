@@ -167,6 +167,7 @@
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
           - Stunbaton
+          - SecStunbaton # Coyote
           - PowerCell # Frontier
         blacklist: # Frontier
           tags: # Frontier
@@ -193,6 +194,7 @@
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
           - Stunbaton
+          - SecStunbaton # Coyote
           - PowerCell
         blacklist:
           tags:
@@ -223,6 +225,7 @@
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
           - Stunbaton
+          - SecStunbaton # Coyote
           - PowerCell # Frontier
         blacklist: # Frontier
           tags: # Frontier
