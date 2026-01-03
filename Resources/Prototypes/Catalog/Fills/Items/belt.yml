@@ -45,7 +45,7 @@
   id: BeltSecurityEntityTable
   table: !type:AllSelector
     children:
-    - id: Stunbaton # Coyote: Stunbaton<SecStunbaton
+    - id: SecStunbaton # Coyote: Stunbaton<SecStunbaton
     - id: Handcuffs
     - id: Handcuffs
     # - id: HoloprojectorSecurity # Frontier
