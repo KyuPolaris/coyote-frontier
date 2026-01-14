@@ -9,18 +9,14 @@
             <!--  Unused markings  -->
             <BoxContainer HorizontalExpand="True" Orientation="Vertical">
                 <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
-                    <Label Text="Leg Style:" />
-                    <OptionButton Name="CMarkingLegStyle" HorizontalExpand="True" />
-                </BoxContainer>
-                <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
-                <Label
-                    HorizontalAlignment="Stretch"
-                    HorizontalExpand="True"
-                    Text="{Loc 'markings-unused'}" />
-                <Label
-                    HorizontalAlignment="Right"
-                    Name="CMarkingPoints"
-                    Text="uwu" />
+                    <Label
+                        HorizontalAlignment="Stretch"
+                        HorizontalExpand="True"
+                        Text="{Loc 'markings-unused'}" />
+                    <Label
+                        HorizontalAlignment="Right"
+                        Name="CMarkingPoints"
+                        Text="uwu" />
                 </BoxContainer>
 
                 <OptionButton Name="CMarkingCategoryButton" StyleClasses="OpenLeft" />
@@ -34,6 +30,10 @@
                     Name="CMarkingAdd"
                     StyleClasses="OpenRight"
                     Text="{Loc 'markings-add'}" />
+                <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
+                    <Label Text="Leg Style:" />
+                    <OptionButton HorizontalExpand="True" Name="CMarkingLegStyle" />
+                </BoxContainer>
             </BoxContainer>
 
             <!--  Used markings  -->

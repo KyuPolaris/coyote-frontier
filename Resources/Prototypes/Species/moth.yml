@@ -33,6 +33,10 @@
     RArm: MobMothRArm
     LHand: MobMothLHand
     RHand: MobMothRHand
+    LLegBehind: MobHumanoidAnyMarking
+    RLegBehind: MobHumanoidAnyMarking
+    LFootBehind: MobHumanoidAnyMarking
+    RFootBehind: MobHumanoidAnyMarking
     LLeg: MobMothLLeg
     RLeg: MobMothRLeg
     LFoot: MobMothLFoot
@@ -152,7 +156,7 @@
     sprite: Mobs/Species/Moth/parts.rsi
     state: torso_m
   altSprites:
-    DigitigradePaw: DigilegMothTorsoMale
+    Digitigrade: DigilegMothTorsoMale
 
 - type: humanoidBaseSprite
   id: MobMothTorsoMale
@@ -160,7 +164,7 @@
     sprite: Mobs/Species/Moth/parts.rsi
     state: torso_m
   altSprites:
-    DigitigradePaw: DigilegMothTorsoMale
+    Digitigrade: DigilegMothTorsoMale
 
 - type: humanoidBaseSprite
   id: MobMothTorsoFemale
@@ -168,7 +172,7 @@
     sprite: Mobs/Species/Moth/parts.rsi
     state: torso_f
   altSprites:
-    DigitigradePaw: DigilegMothTorsoFemale
+    Digitigrade: DigilegMothTorsoFemale
 
 - type: humanoidBaseSprite
   id: MobMothLLeg
@@ -176,7 +180,7 @@
     sprite: Mobs/Species/Moth/parts.rsi
     state: l_leg
   altSprites:
-    DigitigradePaw: DigilegAvianLegLeft
+    Digitigrade: DigilegAvianLegLeft
 
 - type: humanoidBaseSprite
   id: MobMothLFoot
@@ -184,7 +188,7 @@
     sprite: Mobs/Species/Moth/parts.rsi
     state: l_foot
   altSprites:
-    DigitigradePaw: DigilegAvianFootLeft
+    Digitigrade: DigilegAvianFootLeft
 
 - type: humanoidBaseSprite
   id: MobMothRLeg
@@ -192,7 +196,7 @@
     sprite: Mobs/Species/Moth/parts.rsi
     state: r_leg
   altSprites:
-    DigitigradePaw: DigilegAvianLegRight
+    Digitigrade: DigilegAvianLegRight
 
 - type: humanoidBaseSprite
   id: MobMothRFoot
@@ -200,7 +204,7 @@
     sprite: Mobs/Species/Moth/parts.rsi
     state: r_foot
   altSprites:
-    DigitigradePaw: DigilegAvianFootRight
+    Digitigrade: DigilegAvianFootRight
 
 - type: humanoidBaseSprite
   id: MobMothLHand

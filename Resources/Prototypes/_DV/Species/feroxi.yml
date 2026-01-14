@@ -151,7 +151,7 @@
     sprite: DeltaV/Mobs/Species/Feroxi/parts.rsi
     state: torso_m
   altSprites:
-    DigitigradePaw: DigilegSharkTorsoMale
+    Digitigrade: DigilegSharkTorsoMale
 
 - type: humanoidBaseSprite
   id: MobFeroxiTorsoMale
@@ -159,7 +159,7 @@
     sprite: DeltaV/Mobs/Species/Feroxi/parts.rsi
     state: torso_m
   altSprites:
-    DigitigradePaw: DigilegSharkTorsoMale
+    Digitigrade: DigilegSharkTorsoMale
 
 - type: humanoidBaseSprite
   id: MobFeroxiTorsoFemale
@@ -167,7 +167,7 @@
     sprite: DeltaV/Mobs/Species/Feroxi/parts.rsi
     state: torso_f
   altSprites:
-    DigitigradePaw: DigilegSharkTorsoFemale
+    Digitigrade: DigilegSharkTorsoFemale
 
 - type: humanoidBaseSprite
   id: MobFeroxiLLeg
@@ -175,7 +175,7 @@
     sprite: DeltaV/Mobs/Species/Feroxi/parts.rsi
     state: l_leg
   altSprites:
-    DigitigradePaw: DigilegAvianLegLeft
+    Digitigrade: DigilegAvianLegLeft
 
 - type: humanoidBaseSprite
   id: MobFeroxiLFoot
@@ -183,7 +183,7 @@
     sprite: DeltaV/Mobs/Species/Feroxi/parts.rsi
     state: l_foot
   altSprites:
-    DigitigradePaw: DigilegAvianFootLeft
+    Digitigrade: DigilegAvianFootLeft
 
 - type: humanoidBaseSprite
   id: MobFeroxiRLeg
@@ -191,7 +191,7 @@
     sprite: DeltaV/Mobs/Species/Feroxi/parts.rsi
     state: r_leg
   altSprites:
-    DigitigradePaw: DigilegAvianLegRight
+    Digitigrade: DigilegAvianLegRight
 
 - type: humanoidBaseSprite
   id: MobFeroxiRFoot
@@ -199,7 +199,7 @@
     sprite: DeltaV/Mobs/Species/Feroxi/parts.rsi
     state: r_foot
   altSprites:
-    DigitigradePaw: DigilegAvianFootRight
+    Digitigrade: DigilegAvianFootRight
 
 - type: humanoidBaseSprite
   id: MobFeroxiLHand

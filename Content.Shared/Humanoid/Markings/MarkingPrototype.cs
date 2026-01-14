@@ -97,6 +97,9 @@ namespace Content.Shared.Humanoid.Markings
         [DataField("colorLinks")]
         public Dictionary<string, string>? ColorLinks { get; private set; }
 
+        [DataField("baseLayerSprite")]
+        public SpriteSpecifier? BaseLayerSprite { get; private set; } = default!;
+
         public Marking AsMarking()
         {
             return new Marking(ID, Sprites.Count);

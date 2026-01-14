@@ -1385,7 +1385,7 @@ namespace Content.Client.Lobby.UI
                 return;
 
             Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithLegs(legsStyle));
-            ReloadProfilePreview();
+            ReloadPreview();
         }
 
         protected override void Dispose(bool disposing)

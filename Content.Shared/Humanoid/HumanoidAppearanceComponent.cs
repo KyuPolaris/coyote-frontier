@@ -1,3 +1,4 @@
+using Content.Shared._Coyote;
 using Content.Shared.DisplacementMap;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
@@ -15,6 +16,8 @@ namespace Content.Shared.Humanoid;
 public sealed partial class HumanoidAppearanceComponent : Component
 {
     public MarkingSet ClientOldMarkings = new();
+
+    public HashSet<string> ClientElderMarkings = new();
 
     [DataField, AutoNetworkedField]
     public MarkingSet MarkingSet = new();
@@ -170,6 +173,19 @@ public sealed partial class HumanoidAppearanceComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public HumanoidLegStyle LegStyle = HumanoidLegStyle.Plantigrade;
+
+    /// <summary>
+    ///     The set of displacements to use for clothing based on leg style.
+    ///     Currently unused because it crashes the game for some reason.
+    ///     Good luck if you want to figure it out coyote!
+    /// </summary>
+    [DataField]
+    public Dictionary<HumanoidLegStyle, ProtoId<LegDisplacementPrototype>> LegDisplacements = new()
+    {
+        {
+            HumanoidLegStyle.Digitigrade, new ProtoId<LegDisplacementPrototype>("LegDisplacementDigitigrade")
+        },
+    };
 }
 
 [DataDefinition]

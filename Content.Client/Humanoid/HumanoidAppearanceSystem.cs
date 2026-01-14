@@ -2,6 +2,8 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Client.DisplacementMap;
 using Content.Shared.CCVar;
 using System.Numerics;
+using Content.Shared._Coyote;
+using Content.Shared.DisplacementMap;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
@@ -51,7 +53,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
 
         UpdateLayers(component, sprite);
         ApplyMarkingSet(component, sprite);
-        // TODO: make this thing a more versatulate proc
+        // TODO: make this thing a more versatulate proc // todo: figure out what I meant by this
         var speciesPrototype = _prototypeManager.Index(component.Species);
 
         // Don't clamp height/width on client - the server already handles limits
@@ -172,10 +174,10 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
                 && proto.AltSprites.Count > 0)
             {
                 ProtoId<MarkingPrototype>? altMarkingProtoId = null;
-                // we have to do two things: check if the leg style is supported, and if not, check if DigitigradePaw
+                // we have to do two things: check if the leg style is supported, and if not, check if Digitigrade
                 // is supported. At least one needs to be true!
                 if (proto.AltSprites.TryGetValue(component.LegStyle, out ProtoId<MarkingPrototype> altSprite)
-                    || proto.AltSprites.TryGetValue(HumanoidLegStyle.DigitigradePaw, out altSprite))
+                    || proto.AltSprites.TryGetValue(HumanoidLegStyle.Digitigrade, out altSprite))
                 {
                     altMarkingProtoId = altSprite;
                 }
@@ -184,7 +186,11 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
                 {
                     // just use the first sprite, as base layers only have one sprite
                     // the markings should only have one sprite anyway
-                    if (altMarkingProto.Sprites.Count > 0)
+                    if (altMarkingProto.BaseLayerSprite is SpriteSpecifier.Rsi)
+                    {
+                        appropriateSprite = altMarkingProto.BaseLayerSprite;
+                    }
+                    else if (altMarkingProto.Sprites.Count > 0)
                     {
                         appropriateSprite = altMarkingProto.Sprites[0];
                     }
@@ -428,8 +434,8 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         // Or if they dont have that specific leg style, check if they have digitigrade paw instead
         // if neither are present, we just use the normal marking and proot
         if (markingPrototype.AlternateSprites.TryGetValue(humanoid.LegStyle, out var altMarkingProtoId)
-            || (humanoid.LegStyle != HumanoidLegStyle.DigitigradePaw
-                && markingPrototype.AlternateSprites.TryGetValue(HumanoidLegStyle.DigitigradePaw, out altMarkingProtoId)))
+            || (humanoid.LegStyle != HumanoidLegStyle.Digitigrade
+                && markingPrototype.AlternateSprites.TryGetValue(HumanoidLegStyle.Digitigrade, out altMarkingProtoId)))
         {
             newPrototype = _prototypeManager.Index<MarkingPrototype>(altMarkingProtoId);
         }
@@ -454,6 +460,17 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
                 RemoveMarking(marking, sprite);
             }
         }
+
+        // then we do it my way!
+        foreach (var layid in humanoid.ClientElderMarkings)
+        {
+            if (sprite.LayerMapTryGet(layid, out var index))
+            {
+                sprite.LayerMapRemove(layid);
+                sprite.RemoveLayer(index);
+            }
+        }
+        humanoid.ClientElderMarkings.Clear();
     }
 
     private void RemoveMarking(Marking marking, SpriteComponent spriteComp)
@@ -481,31 +498,8 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         }
     }
 
-    private void AddUndergarments(HumanoidAppearanceComponent humanoid, SpriteComponent sprite, bool undergarmentTop, bool undergarmentBottom)
-    {
-        if (undergarmentTop && humanoid.UndergarmentTop != null)
-        {
-            var marking = new Marking(humanoid.UndergarmentTop, new List<Color> { new Color() });
-            if (_markingManager.TryGetMarking(marking, out var prototype))
-            {
-                // Markings are added to ClientOldMarkings because otherwise it causes issues when toggling the feature on/off.
-                humanoid.ClientOldMarkings.Markings.Add(MarkingCategories.UndergarmentTop, new List<Marking>{ marking });
-                ApplyMarking(prototype, null, true, humanoid, sprite);
-            }
-        }
-
-        if (undergarmentBottom && humanoid.UndergarmentBottom != null)
-        {
-            var marking = new Marking(humanoid.UndergarmentBottom, new List<Color> { new Color() });
-            if (_markingManager.TryGetMarking(marking, out var prototype))
-            {
-                humanoid.ClientOldMarkings.Markings.Add(MarkingCategories.UndergarmentBottom, new List<Marking>{ marking });
-                ApplyMarking(prototype, null, true, humanoid, sprite);
-            }
-        }
-    }
-
-    private void ApplyMarking(MarkingPrototype markingPrototype,
+    private void ApplyMarking(
+        MarkingPrototype markingPrototype,
         IReadOnlyList<Color>? colors,
         bool visible,
         HumanoidAppearanceComponent humanoid,
@@ -607,6 +601,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
                 sprite.LayerMapSet(layerId, layer);
                 sprite.LayerSetSprite(layerId, rsi);
             }
+            humanoid.ClientElderMarkings.Add(layerId);
             // impstation edit begin - check if there's a shader defined in the markingPrototype's shader datafield, and if there is...
             if (markingPrototype.Shader != null)
             {
@@ -627,10 +622,38 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             // FLOOF ADD =3
             sprite.LayerSetColor(layerId, colorDict.TryGetValue(rsi.RsiState, out var color) ? color : Color.White);
 
-            if (humanoid.MarkingsDisplacement.TryGetValue(markingPrototype.BodyPart, out var displacementData) && markingPrototype.CanBeDisplaced)
+            if (humanoid.MarkingsDisplacement.TryGetValue(markingPrototype.BodyPart, out DisplacementData? displacementData)
+                && markingPrototype.CanBeDisplaced)
             {
-                _displacement.TryAddDisplacement(displacementData, sprite, targetLayer + j + 1, layerId, out _);
+                _displacement.TryAddDisplacement(
+                    displacementData,
+                    sprite,
+                    targetLayer + j + 1,
+                    layerId,
+                    out _);
             }
+            // if (humanoid.LegStyle == HumanoidLegStyle.Digitigrade
+            //          && markingPrototype.BodyPart is HumanoidVisualLayers.LFoot
+            //              or HumanoidVisualLayers.RFoot
+            //              or HumanoidVisualLayers.LLeg
+            //              or HumanoidVisualLayers.RLeg
+            //          && _prototypeManager.TryIndex(humanoid.Species, out SpeciesPrototype? speciesProto)
+            //          && speciesProto.AllowDigilegDisplacement
+            //          && humanoid.LegDisplacements.TryGetValue(
+            //              humanoid.LegStyle,
+            //              out var legDisplacementId)
+            //          && _prototypeManager.TryIndex(legDisplacementId, out LegDisplacementPrototype?
+            //              legDisplacementProto)
+            //          && legDisplacementProto.Displacements.TryGetValue("jumpsuit", out DisplacementData? legDisplacementData)
+            //          && markingPrototype.CanBeDisplaced)
+            // {
+            //     _displacement.TryAddDisplacement(
+            //         legDisplacementData,
+            //         sprite,
+            //         targetLayer + j + 1,
+            //         layerId,
+            //         out _);
+            // }
         }
 
         if (MarkingCategoriesConversion.Category2Layer(
@@ -720,6 +743,52 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         humanoid.PermanentlyHidden.Add(HumanoidVisualLayers.Genital);
         base.HideGenitals(ent, humanoid);
         UpdateSprite(humanoid, Comp<SpriteComponent>(ent));
+    }
+
+    // displacementData = _humanoidSystem.GetDisplacementForLegStyle(
+    //     slot,
+    //     humanoidAppearance.LegStyle,
+    //     inventory,
+    //     displacementData);
+
+    public void GetDisplacementForLegStyle(
+        EntityUid uid,
+        string slot,
+        HumanoidAppearanceComponent? humanoidAppearance,
+        DisplacementData? baseDisplacementDataIn,
+        DisplacementData? maleDisplacementDataIn,
+        DisplacementData? femaleDisplacementDataIn,
+        out DisplacementData? baseDisplacementData,
+        out DisplacementData? maleDisplacementData,
+        out DisplacementData? femaleDisplacementData
+        )
+    {
+        baseDisplacementData   = baseDisplacementDataIn;
+        maleDisplacementData   = maleDisplacementDataIn;
+        femaleDisplacementData = femaleDisplacementDataIn;
+        if (!Resolve(uid, ref humanoidAppearance))
+            return;
+        if (!_prototypeManager.TryIndex(humanoidAppearance.Species, out SpeciesPrototype? sp)
+            || !sp.AllowDigilegDisplacement)
+        {
+            return;
+        }
+
+        if (!humanoidAppearance.LegDisplacements.TryGetValue(
+            humanoidAppearance.LegStyle,
+            out ProtoId<LegDisplacementPrototype> displacement))
+        {
+            return;
+        }
+
+        if (!_prototypeManager.TryIndex(displacement, out LegDisplacementPrototype? ldp))
+        {
+            return;
+        }
+
+        baseDisplacementData   = ldp.Displacements!.GetValueOrDefault(slot, baseDisplacementDataIn);
+        maleDisplacementData   = ldp.MaleDisplacements!.GetValueOrDefault(slot, maleDisplacementDataIn);
+        femaleDisplacementData = ldp.FemaleDisplacements!.GetValueOrDefault(slot, femaleDisplacementDataIn);
     }
 }
 

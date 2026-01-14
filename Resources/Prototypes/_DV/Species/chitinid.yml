@@ -106,7 +106,7 @@
     sprite: _DV/Mobs/Species/Chitinid/parts.rsi
     state: torso_m
   altSprites:
-    DigitigradePaw: DigilegMothTorsoMale
+    Digitigrade: DigilegMothTorsoMale
 
 - type: humanoidBaseSprite
   id: MobChitinidTorsoMale
@@ -114,7 +114,7 @@
     sprite: _DV/Mobs/Species/Chitinid/parts.rsi
     state: torso_m
   altSprites:
-    DigitigradePaw: DigilegMothTorsoMale
+    Digitigrade: DigilegMothTorsoMale
 
 - type: humanoidBaseSprite
   id: MobChitinidTorsoFemale
@@ -122,7 +122,7 @@
     sprite: _DV/Mobs/Species/Chitinid/parts.rsi
     state: torso_f
   altSprites:
-    DigitigradePaw: DigilegMothTorsoFemale
+    Digitigrade: DigilegMothTorsoFemale
 
 - type: humanoidBaseSprite
   id: MobChitinidLLeg
@@ -130,7 +130,7 @@
     sprite: _DV/Mobs/Species/Chitinid/parts.rsi
     state: l_leg
   altSprites:
-    DigitigradePaw: DigilegAvianLegLeft
+    Digitigrade: DigilegAvianLegLeft
 
 - type: humanoidBaseSprite
   id: MobChitinidLFoot
@@ -138,7 +138,7 @@
     sprite: _DV/Mobs/Species/Chitinid/parts.rsi
     state: l_foot
   altSprites:
-    DigitigradePaw: DigilegAvianFootLeft
+    Digitigrade: DigilegAvianFootLeft
 
 - type: humanoidBaseSprite
   id: MobChitinidRLeg
@@ -146,7 +146,7 @@
     sprite: _DV/Mobs/Species/Chitinid/parts.rsi
     state: r_leg
   altSprites:
-    DigitigradePaw: DigilegAvianLegRight
+    Digitigrade: DigilegAvianLegRight
 
 - type: humanoidBaseSprite
   id: MobChitinidRFoot
@@ -154,7 +154,7 @@
     sprite: _DV/Mobs/Species/Chitinid/parts.rsi
     state: r_foot
   altSprites:
-    DigitigradePaw: DigilegAvianFootRight
+    Digitigrade: DigilegAvianFootRight
 
 - type: humanoidBaseSprite
   id: MobChitinidLHand

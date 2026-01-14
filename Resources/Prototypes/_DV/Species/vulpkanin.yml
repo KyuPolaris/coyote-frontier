@@ -38,6 +38,10 @@
     RHand: MobVulpkaninRHand
     LLeg: MobVulpkaninLLeg
     RLeg: MobVulpkaninRLeg
+    LLegBehind: MobHumanoidAnyMarking
+    RLegBehind: MobHumanoidAnyMarking
+    LFootBehind: MobHumanoidAnyMarking
+    RFootBehind: MobHumanoidAnyMarking
     LFoot: MobVulpkaninLFoot
     RFoot: MobVulpkaninRFoot
     TailBehind: MobHumanoidAnyMarking
@@ -152,7 +156,7 @@
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
     state: torso_m
   altSprites:
-    DigitigradePaw: DigilegFurryTorsoMale
+    Digitigrade: DigilegFurryTorsoMale
 
 - type: humanoidBaseSprite
   id: MobVulpkaninTorsoMale
@@ -161,7 +165,7 @@
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
     state: torso_m
   altSprites:
-    DigitigradePaw: DigilegFurryTorsoMale
+    Digitigrade: DigilegFurryTorsoMale
 
 - type: humanoidBaseSprite
   id: MobVulpkaninTorsoFemale
@@ -170,7 +174,7 @@
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
     state: torso_f
   altSprites:
-    DigitigradePaw: DigilegFurryTorsoFemale
+    Digitigrade: DigilegFurryTorsoFemale
 
 - type: humanoidBaseSprite
   id: MobVulpkaninLLeg
@@ -179,7 +183,7 @@
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
     state: l_leg
   altSprites:
-    DigitigradePaw: DigilegPawLegLeft
+    Digitigrade: DigilegPawLegLeft
 
 - type: humanoidBaseSprite
   id: MobVulpkaninLFoot
@@ -188,7 +192,7 @@
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
     state: l_foot
   altSprites:
-    DigitigradePaw: DigilegPawFootLeft
+    Digitigrade: DigilegPawFootLeft
 
 - type: humanoidBaseSprite
   id: MobVulpkaninRLeg
@@ -197,7 +201,7 @@
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
     state: r_leg
   altSprites:
-    DigitigradePaw: DigilegPawLegRight
+    Digitigrade: DigilegPawLegRight
 
 - type: humanoidBaseSprite
   id: MobVulpkaninRFoot
@@ -206,7 +210,7 @@
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
     state: r_foot
   altSprites:
-    DigitigradePaw: DigilegPawFootRight
+    Digitigrade: DigilegPawFootRight
 
 - type: humanoidBaseSprite
   id: MobVulpkaninLHand

@@ -40,5 +40,5 @@ markings-category-BaseRArm  = Base Arm (right)
 markings-category-BaseRFoot = Base Foot (right)
 markings-category-BaseRHand = Base Hand (right)
 markings-category-BaseRLeg  = Base Leg (right)
-markings-category-BaseLegs  = Base Arms & Hands
-markings-category-BaseArms  = Base Legs & Feet
+markings-category-BaseLegs  = Base Legs & Feet
+markings-category-BaseArms  = Base Arms & Hands

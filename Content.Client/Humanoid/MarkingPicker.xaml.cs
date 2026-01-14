@@ -50,7 +50,7 @@ public sealed partial class MarkingPicker : Control
     private readonly HashSet<HumanoidLegStyle> _availableLegStyles = new()
     {
         HumanoidLegStyle.Plantigrade,
-        HumanoidLegStyle.DigitigradePaw,
+        HumanoidLegStyle.Digitigrade,
     };
 
     private readonly HashSet<MarkingCategories> _ignoreCategories = new();
@@ -253,10 +253,15 @@ public sealed partial class MarkingPicker : Control
         CMarkingsUnused.Clear();
         _selectedUnusedMarking = null;
 
-        var sortedMarkings = GetMarkings(_selectedMarkingCategory).Values.Where(m =>
-            m.ID.ToLower().Contains(filter.ToLower()) ||
-            GetMarkingName(m).ToLower().Contains(filter.ToLower())
-        ).OrderBy(p => Loc.GetString(GetMarkingName(p)));
+        IOrderedEnumerable<MarkingPrototype> sortedMarkings = GetMarkings(_selectedMarkingCategory)
+            .Values.Where(m =>
+                !m.Hidden
+                && (m.ID.ToLower()
+                        .Contains(filter.ToLower())
+                    || GetMarkingName(m)
+                        .ToLower()
+                        .Contains(filter.ToLower())))
+            .OrderBy(p => Loc.GetString(GetMarkingName(p)));
 
         foreach (var marking in sortedMarkings)
         {
