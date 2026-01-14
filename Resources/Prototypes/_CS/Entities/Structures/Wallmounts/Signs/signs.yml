@@ -1,11 +1,4 @@
-# Directional Station Guide Signs
-- type: entity
-  parent: BaseSign
-  id: CSBaseSign
-  abstract: true
-  components:
-    - type: Sprite
-      sprite: _CS/Structures/Wallmounts/signs.rsi
+# CS Signs
 
 - type: entity
   parent: CSBaseSign
