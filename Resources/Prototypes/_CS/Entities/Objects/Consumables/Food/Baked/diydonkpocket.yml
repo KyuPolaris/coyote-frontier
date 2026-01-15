@@ -20,3 +20,25 @@
   - type: Sprite
     sprite: _CS/Objects/Consumable/Food/Baked/diydonkpocket.rsi
     state: bbq
+
+- type: entity
+  name: Banana Donk Pocket
+  parent: FoodDonkpocketBase
+  id: FoodDonkpocketBananaDIY
+  description: Banana
+  components:
+  - type: FlavorProfile
+    flavors:
+    - bread
+    - sweet
+    - wassail
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+  - type: Sprite
+    sprite: _CS/Objects/Consumable/Food/Baked/diydonkpocket.rsi
+    state: banana
