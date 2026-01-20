@@ -99,6 +99,8 @@
   components:
   - type: SpawnPoint
     job_id: StationTrafficController
+    alt_jobs:
+    - Secretary
   - type: Sprite
     sprite: _NF/Markers/jobs.rsi
     layers:
