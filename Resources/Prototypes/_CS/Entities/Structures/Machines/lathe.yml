@@ -24,14 +24,29 @@
     idleState: icon
     runningState: icon
     staticPacks:
-    - NFServiceTechfabDeprecatedStatic
+    - NFLightsStatic
+    - NFBasicToolsStatic
+    - NFBasicStorageStatic
+    - NFBasicPartsStatic
+    - NFBasicElectronicsStatic
+    - NFBasicEvaStatic
+    - NFBasicEVAToolsStatic
+    - NFMaterialElectronicsStatic
+    - NFServiceStorageStatic
+    - NFBotanyToolsStatic
+    - NFServiceToolsStatic
+    - NFServiceEvaPackStatic
+    - NFServiceKitchenStatic
+    - NFServiceStatic
     - NFPaperAndPaperAccessories
     - ReportingStatic # DeltaV
+    - NFLightsColoredStatic
+    - NFServiceArchetypeStatic
     - CSPlumbingStatic # CS - showers, sinks, drains
     - CSDonkcoServiceTechfabStatic
   - type: EmagLatheRecipes
     emagStaticPacks:
-    - NFServiceTechfabDeprecatedEmagStatic
+    - NFServiceTechfabEmagStatic
   - type: BlueprintReceiver
     whitelist:
       tags:
