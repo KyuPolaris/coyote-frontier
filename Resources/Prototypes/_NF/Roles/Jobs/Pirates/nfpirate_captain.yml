@@ -18,7 +18,7 @@
   supervisors: job-supervisors-freebooters-union
   weight: 40
   displayWeight: 40
-  setPreference: true
+  setPreference: false
   newPlayerMessage: false
   access:
   - Pirate
@@ -28,7 +28,7 @@
   special:
   - !type:AddComponentSpecial
     components:
-    - type: AutoPirateCaptain
+#    - type: AutoPirateCaptain
     - type: SpecialSectorStationRecord # must be given on spawn
       recordGeneration: FalseRecord
     - type: DisableSuitSensors
@@ -51,6 +51,8 @@
   storage:
     back:
     - AppraisalTool
+    # - PirateTechFabFlatpack # CS - Disable pending piratefab rework/change
+    - Multitool
 
 - type: chameleonOutfit
   id: NFPirateCaptainChameleonOutfit

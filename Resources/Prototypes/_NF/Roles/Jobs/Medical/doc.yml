@@ -7,9 +7,12 @@
     - !type:OverallPlaytimeRequirement
       time: 72000 # 20 hrs
     - !type:RoleTimeRequirement
-      role: JobDirectorOfCare # CS: JobDirectorOfCare
-      time: 3600 # CS: 1 hr of itself
-  whitelisted: true
+      role: JobSecretary
+      time: 72000
+  overrideRequirement:
+  - !type:RoleTimeRequirement
+    role: JobDirectorOfCare
+    time: 600 # 10 minutes to requalify
   startingGear: DocGear
   alwaysUseSpawner: true
   icon: "JobIconDoc"

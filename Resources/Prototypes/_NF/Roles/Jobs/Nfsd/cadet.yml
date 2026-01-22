@@ -6,13 +6,9 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 43200 # frontier = 6 hrs | CS = 12 hrs, TIME IN SECONDS
-    - !type:RoleTimeRequirement # CS: swaps the playtime requirement to literally just be an hour of the role itself.
-      role: JobSecurityCadet
-      time: 3600 # 1 hour
-#    - !type:DepartmentTimeRequirement # CS: swaps the playtime requirement to literally just be an hour of the role itself.
-#      department: Security
-#      time: 3600 # frontier = 18 hrs | CS = 1 hrs, joblist requirement.
-#      inverted: true # Leave slots open for newer, less confident players.
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 3600 # frontier = 1 hr | CS = 6 hrs, TIME IN SECONDS
   startingGear: CadetGear
   icon: JobIconCadetNF
   supervisors: job-supervisors-cadet

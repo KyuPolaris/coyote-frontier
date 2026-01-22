@@ -194,7 +194,7 @@
 - type: entity
   id: VendingMachineArcadia
   name: ArcadiaDrobe
-  parent: [ VendingMachine, BaseC3Contraband ]
+  parent: [ VendingMachine, BaseC1Contraband ]
   description: Selling clothes from another reality for cheap prices!
   components:
     - type: VendingMachine
@@ -834,15 +834,15 @@
     pack: TankDispenserEVAPOIInventory
 
 - type: entity
-  parent: [VendingMachinePickNPack, BaseStructureDisableToolUse] # Coyote: no more hacking, contractors!
+  parent: [VendingMachinePickNPack, BaseStructureDisableAnchoring] # Coyote: no more hacking, contractors!
   id: VendingMachinePickNPackPOI
   suffix: POI
   components:
   - type: VendingMachine
     pack: PickNPackPOIInventory
-  - type: AccessReader
-    access: [["Mercenary"], ["Security"], ["HeadOfPersonnel"], ["HeadOfSecurity"]]
-  - type: ActivatableUIRequiresAccess
+#  - type: AccessReader
+#    access: [["Mercenary"], ["Security"], ["HeadOfPersonnel"], ["HeadOfSecurity"]]
+#  - type: ActivatableUIRequiresAccess
 
 #region DEBUG
 - type: entity

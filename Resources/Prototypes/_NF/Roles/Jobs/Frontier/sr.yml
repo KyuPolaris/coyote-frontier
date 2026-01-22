@@ -7,9 +7,12 @@
     - !type:OverallPlaytimeRequirement
       time: 72000 # 20 hrs
     - !type:RoleTimeRequirement
-      role: JobHeadOfPersonnel # frontier: JobSecurityGuard -> CS: JobHeadOfPersonnel
-      time: 3600 # frontier: 3 hrs as security guard -> CS: 1 hr of itself
-  whitelisted: true
+      role: JobSecretary
+      time: 72000
+  overrideRequirement:
+  - !type:RoleTimeRequirement
+    role: JobHeadOfPersonnel
+    time: 600 # 10 minutes to requalify
   startingGear: SrGear
   alwaysUseSpawner: true
   icon: "JobIconHeadOfPersonnel"

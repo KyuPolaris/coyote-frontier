@@ -12,7 +12,7 @@
     vendPrice: 200000 # about the cost of running a pacman for 3 days. cost of convenience.
 
 - type: entity
-  parent: [ BaseFlatpack, BaseC3MetaPirate ]
+  parent: [ BaseFlatpack, BaseC3Contraband ]
   id: ShuttleGunPirateCannonFlatpack
   name: pirate ship cannon flatpack
   description: A flatpack used for deploying a pirate ship cannon.
@@ -31,7 +31,7 @@
     vendPrice: 15000
 
 - type: entity
-  parent: [ BaseFlatpack, BaseC2ExpeditionContraband ]
+  parent: [ BaseFlatpack, BaseC2Contraband ]
   id: ShuttleGunSvalinnMachineGunFlatpack
   name: LSE-400c "Svalinn machine gun" flatpack
   description: A flatpack used for deploying a LSE-400c "Svalinn machine gun".
@@ -45,6 +45,82 @@
     - state: icon-default
   - type: Flatpack
     entity: ShuttleGunSvalinnMachineGun
+  - type: StaticPrice
+    price: 1000
+    vendPrice: 10000
+
+- type: entity
+  parent: BaseFlatpack
+  id: SyndicateElectricRangeFlatpack
+  name: Donk Co. electric range flatpack
+  description: A flatpack used for deploying a donk co. electric range.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#A46106"
+      map: ["enum.FlatpackVisualLayers.Overlay"]
+    - state: icon-default
+  - type: Flatpack
+    entity: SyndicateKitchenElectricRange
+  - type: StaticPrice
+    price: 1000
+    vendPrice: 10000
+
+- type: entity
+  parent: BaseFlatpack
+  id: SyndicateMicrowaveFlatpack
+  name: Donk Co. microwave flatpack
+  description: A flatpack used for deploying a donk co. microwave.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#A46106"
+      map: ["enum.FlatpackVisualLayers.Overlay"]
+    - state: icon-default
+  - type: Flatpack
+    entity: SyndicateMicrowave
+  - type: StaticPrice
+    price: 1000
+    vendPrice: 10000
+
+- type: entity
+  parent: BaseFlatpack
+  id: SyndicateBoozeFlatpack
+  name: Bruise-O-Mat flatpack
+  description: A flatpack used for deploying a Bruise-O-Mat.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#A46106"
+      map: ["enum.FlatpackVisualLayers.Overlay"]
+    - state: icon-default
+  - type: Flatpack
+    entity: VendingMachineBoozeSyndicate
+  - type: StaticPrice
+    price: 1000
+    vendPrice: 10000
+
+- type: entity
+  parent: BaseFlatpack
+  id: SyndieDrobeFlatpack
+  name: SyndieDrobe flatpack
+  description: A flatpack used for deploying a SyndieDrobe.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#A46106"
+      map: ["enum.FlatpackVisualLayers.Overlay"]
+    - state: icon-default
+  - type: Flatpack
+    entity: VendingMachineSyndieDrobe
   - type: StaticPrice
     price: 1000
     vendPrice: 10000

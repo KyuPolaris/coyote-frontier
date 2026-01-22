@@ -50,7 +50,7 @@
       tags:
         - NFCartridgeRifle20
     proto: NFCartridgeRifle20
-    capacity: 60
+    capacity: 50 #COYOTE 60->50
   - type: Sprite
     sprite: _NF/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle20_drum.rsi
     layers:
@@ -65,6 +65,7 @@
     steps: 10
     zeroVisible: false
   - type: Item
+    size: Normal #COYOTE increased size to normal
     sprite: _NF/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle20_drum.rsi
     inhandVisuals:
       left:
@@ -145,7 +146,9 @@
 - type: entity
   id: NFMagazineRifle20Incendiary
   name: magazine (.20 rifle, incendiary)
-  parent: NFBaseMagazineRifle20
+  parent:
+  - NFBaseMagazineRifle20
+  - BaseC2Contraband
   components:
   - type: BallisticAmmoProvider
     proto: NFCartridgeRifle20Incendiary
@@ -171,7 +174,9 @@
 - type: entity
   id: NFMagazineRifle20Uranium
   name: magazine (.20 rifle, uranium)
-  parent: NFBaseMagazineRifle20
+  parent:
+  - NFBaseMagazineRifle20
+  - BaseC4Contraband
   components:
   - type: BallisticAmmoProvider
     proto: NFCartridgeRifle20Uranium

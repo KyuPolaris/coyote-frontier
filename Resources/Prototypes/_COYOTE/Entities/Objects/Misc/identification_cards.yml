@@ -1,6 +1,6 @@
 - type: entity
-  name: Pilot ID card # Frontier: passenger<contractor
-  parent: [IDCardStandard, BaseC3PirateContraband]
+  name: Pilot ID card # Frontier: passenger<resident
+  parent: [IDCardStandard, NotContraband]
   id: SmugglerIDCard
   suffix: Coyote
   categories: [ HideSpawnMenu ] # Coyote
@@ -19,6 +19,7 @@
     - state: idpilot # Frontier: idpassenger<idcontractor
       sprite: _NF/Objects/Misc/id_cards.rsi # Frontier
   - type: AgentIDCard
+    allowAccessCopying: false
   - type: ActivatableUI
     key: enum.AgentIDCardUiKey.Key
     inHandsOnly: true

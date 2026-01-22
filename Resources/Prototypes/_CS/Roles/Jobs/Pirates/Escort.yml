@@ -31,7 +31,7 @@
   special:
   - !type:AddComponentSpecial
     components:
-    - type: AutoPirate
+#    - type: AutoPirate
     - type: SpecialSectorStationRecord # must be given on spawn
       recordGeneration: FalseRecord
     - type: DisableSuitSensors
@@ -71,10 +71,12 @@
   id: EscortGear
   equipment:
     belt: ClothingBeltUtility
+    pocket1: BasePirateUplinkPirateCrew
   storage:
     back:
     - EncryptionKeyFreelance
     - ShipVoucherCoyoteEscort
+    - ComputerIFFFlatpack
 
 - type: chameleonOutfit
   id: EscortChameleonOutfit
@@ -107,7 +109,7 @@
   - PilotEars
   - ContractorEncryptionKey
   - ContractorBoxSurvival
-  - NFPiratePDA
+  - SmugglerPDA
   - ContractorWallet
   - ContractorCartridge
   - ContractorBackpackItems
