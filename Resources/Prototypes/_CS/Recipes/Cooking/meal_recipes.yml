@@ -156,7 +156,7 @@
   group: Sweet
   solids:
     FoodDoughCottonSlice: 1
-    Cloth: 1
+    MaterialCloth1: 1
   reagents:
     Fat: 2
   recipeType: Assembler # Frontier
@@ -226,7 +226,7 @@
   reagents:
     Fat: 2
     BbqSauce: 2.5
-    SoySauce: 2.5
+    Soysauce: 2.5
   recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
@@ -464,5 +464,5 @@
   time: 5
   group: Savory
   solids:
-    FoodDonkpocketPrepSavoryDIY: 1
+    FoodDonkpocketPrepMozzarellaDIY: 1
   recipeType: Oven # Frontier
