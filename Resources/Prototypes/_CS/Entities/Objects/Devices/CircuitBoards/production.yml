@@ -1,0 +1,24 @@
+- type: entity
+  id: DonkcoServiceTechFabCircuitboard
+  parent: ServiceTechFabCircuitboard
+  name: donk co service techfab machine board
+  description: A machine printed circuit board for a donk co service techfab
+  components:
+    - type: MachineBoard
+      prototype: DonkcoServiceTechFab
+
+- type: entity
+  id: DonkcoKitchenAssemblerMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: Donk Pocket Assembler machine board
+  description: A machine printed circuit board for a Donk Pocket Assembler, suitable for a kitchen.
+  components:
+  - type: Sprite
+    state: service
+  - type: MachineBoard
+    prototype: DonkcoKitchenAssembler
+    requirements:
+      Capacitor: 1
+    stackRequirements:
+      Glass: 2
+      Cable: 2
